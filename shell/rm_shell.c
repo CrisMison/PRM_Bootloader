@@ -39,18 +39,19 @@ void rm_shellentry(void)
         
         switch(ch)
         {
+            int p;
             case '\b':
             {
                 if(shellbufp > 0 && shellbufl > 0)
                 {
-                    for(int p = shellbufp; p <= shellbufl; p++)
+                    for(p = shellbufp; p <= shellbufl; p++)
                     {
                         shellbuf[p - 1] = shellbuf[p];
                     }
                     shellbufp--;
                     shellbufl--;
                     dprintf("\b%s \b",&shellbuf[shellbufp]);
-                    for(int p = 0; p < shellbufl - shellbufp; p++)
+                    for(p = 0; p < shellbufl - shellbufp; p++)
                     {
                         dprintf("\b");
                     }
@@ -110,7 +111,7 @@ void rm_shellentry(void)
             {
                 if(shellbufp <= SHELL_BUFFER_MAX && shellbufl <= SHELL_BUFFER_MAX)
                 {
-                    for(int p = shellbufl; p >= shellbufp; p--)
+                    for(p = shellbufl; p >= shellbufp; p--)
                     {
                         shellbuf[p + 1] = shellbuf[p];
                     }
@@ -118,7 +119,7 @@ void rm_shellentry(void)
                     dprintf("%s",&shellbuf[shellbufp]);
                     shellbufp++;
                     shellbufl++;
-                    for(int p = 0; p < shellbufl - shellbufp; p++)
+                    for(p = 0; p < shellbufl - shellbufp; p++)
                     {
                         dprintf("\b");
                     }

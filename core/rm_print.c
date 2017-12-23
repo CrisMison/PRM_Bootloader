@@ -53,9 +53,9 @@ long long int npow(int base, int n)
 /* Calculate the decimical bits of the number */
 int dec_bit(long long int n)
 {
+    int bit = 20;
     if(n < 0)
         n = -n;
-    int bit = 20;
     for(bit = 20; bit >= 0; bit--)
     {
         if( n / npow(10, bit) > 0)
@@ -92,11 +92,11 @@ int hex_bit(unsigned long long int n)
 
 void __dprintf(const char *format, ...)
 {
-    va_list arg;
-    va_start(arg, format);
     int zero_set = 0;
     int num_bit = 0;
     int num_long = 0;
+    va_list arg;
+    va_start(arg, format);
     while(*format)
     {
         char ret = *format;
