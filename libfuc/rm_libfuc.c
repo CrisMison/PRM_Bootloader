@@ -3,7 +3,7 @@
 void rm_memset(void *s, unsigned int val, unsigned int length)
 {
     char *p = (char*)s;
-    int i = 0;
+    unsigned int i = 0;
     for(i = 0; i < length; i++)
     {
         *(p + i) = val;

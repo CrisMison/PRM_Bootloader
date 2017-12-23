@@ -3,7 +3,7 @@
 #include "rm_shell.h"
 #include "rm_print.h"
 #include "pl_driverbase.h"
-int main()
+int main(void)
 {
 
     device_init();

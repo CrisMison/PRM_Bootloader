@@ -4,10 +4,6 @@
 #include "rm_print.h"
 extern int uart_fputc(char ch);
 
-void fputc(char ch)
-{
-    uart_fputc(ch);
-}
 
 char itoa_bit(int n)
 {
@@ -114,14 +110,14 @@ SWITCHER:
             {
                 case 'c':
                 {
-                    char ch = va_arg(arg, char);
+                    char ch = va_arg(arg, int);
                     if(ch == '\n' || ch == '\r')
                     {
-                        fputc('\r');
-                        fputc('\n');
+                        uart_fputc('\r');
+                        uart_fputc('\n');
                     }
                     else
-                        fputc(ch);
+                        uart_fputc(ch);
                     break;
                 }
                 case 's':
@@ -131,9 +127,9 @@ SWITCHER:
                     {
                         if(*ch == '\n' && *(ch - 1) != '\r')
                         {
-                            fputc('\r');
+                            uart_fputc('\r');
                         }
-                        fputc(*ch++);
+                        uart_fputc(*ch++);
                     }
                     break;
                 }
@@ -209,21 +205,21 @@ SWITCHER:
                         int n_bit = dec_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         if(n < 0)
                         {
-                            fputc('-');
+                            uart_fputc('-');
                             if(num_bit > 0)
                                 num_bit--;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -240,7 +236,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoa_bit(c);
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else if(num_long == 1)
@@ -249,21 +245,21 @@ SWITCHER:
                         int n_bit = dec_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         if(n < 0)
                         {
-                            fputc('-');
+                            uart_fputc('-');
                             if(num_bit > 0)
                                 num_bit--;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -279,7 +275,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoa_bit(c);
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else
@@ -288,21 +284,21 @@ SWITCHER:
                         int n_bit = dec_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         if(n < 0)
                         {
-                            fputc('-');
+                            uart_fputc('-');
                             if(num_bit > 0)
                                 num_bit--;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -318,7 +314,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoa_bit(c);
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     break;
@@ -331,15 +327,15 @@ SWITCHER:
                         int n_bit = udec_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -356,7 +352,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoa_bit(c);
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else if(num_long == 1)
@@ -365,15 +361,15 @@ SWITCHER:
                         int n_bit = udec_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -390,7 +386,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoa_bit(c);
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else
@@ -399,15 +395,15 @@ SWITCHER:
                         int n_bit = udec_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -424,7 +420,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoa_bit(c);
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     break;
@@ -437,15 +433,15 @@ SWITCHER:
                         int n_bit = hex_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -462,7 +458,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoh_bit(c, 'x');
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else if(num_long == 1)
@@ -471,15 +467,15 @@ SWITCHER:
                         int n_bit = hex_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -496,7 +492,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoh_bit(c, 'x');
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else
@@ -505,15 +501,15 @@ SWITCHER:
                         int n_bit = hex_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -530,7 +526,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoh_bit(c, 'x');
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     break;
@@ -543,15 +539,15 @@ SWITCHER:
                         int n_bit = hex_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -568,7 +564,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoh_bit(c, 'X');
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else if(num_long == 1)
@@ -577,15 +573,15 @@ SWITCHER:
                         int n_bit = hex_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -602,7 +598,7 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoh_bit(c, 'X');
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     else
@@ -611,15 +607,15 @@ SWITCHER:
                         int n_bit = hex_bit(n);
                         if(n == 0)
                         {
-                            fputc('0');
+                            uart_fputc('0');
                             break;
                         }
                         while(num_bit > n_bit)
                         {
                             if(zero_set == 1)
-                                fputc('0');
+                                uart_fputc('0');
                             else
-                                fputc(' ');
+                                uart_fputc(' ');
                             
                             num_bit--;
                         }
@@ -636,14 +632,14 @@ SWITCHER:
                                 c = 0;
                             }
                             ch = itoh_bit(c, 'X');
-                            fputc(ch);
+                            uart_fputc(ch);
                         }
                     }
                     break;
                 }
                 case '%':
                 {
-                    fputc('%');
+                    uart_fputc('%');
                     break;
                 }
                 default:
@@ -659,9 +655,9 @@ SWITCHER:
         {
             if(*format == '\n' && *(format - 1) != '\r')
             {
-                fputc('\r');
+                uart_fputc('\r');
             }
-            fputc(*format);
+            uart_fputc(*format);
         }
         
         format++;

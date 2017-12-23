@@ -13,9 +13,6 @@ char rm_getchar(uartbuf *pu)
     }
     return ch;
 }
-void rm_console(const char* line)
-{
-}
 
 #ifdef RM_CONSOLE_LINUX 
 void rm_shellentry(void)
@@ -64,7 +61,6 @@ void rm_shellentry(void)
             case '\n':
             {
                 dprintf("\n");
-                rm_console(shellbuf);
                 rm_memset(shellbuf, 0, SHELL_BUFFER_MAX);
                 shellbufp = 0;
                 shellbufl = 0;
