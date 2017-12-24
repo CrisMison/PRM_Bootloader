@@ -1,2 +1,0 @@
-/usr/bin/ar cr libzconf.a  CMakeFiles/zconf.dir/zconf.tab.c.o
-/usr/bin/ranlib libzconf.a

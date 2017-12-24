@@ -1,4 +1,0 @@
-/home/baiyibing/code/crismison/project_rm/Code/tools/menuconfig/CMakeFiles/conf.dir
-/home/baiyibing/code/crismison/project_rm/Code/tools/menuconfig/lxdialog/CMakeFiles/lxdialog.dir
-/home/baiyibing/code/crismison/project_rm/Code/tools/menuconfig/CMakeFiles/mconf.dir
-/home/baiyibing/code/crismison/project_rm/Code/tools/menuconfig/CMakeFiles/zconf.dir
