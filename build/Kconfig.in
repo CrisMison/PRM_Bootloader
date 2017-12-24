@@ -1,0 +1,9 @@
+config TOOLCHAIN_TYPE
+string
+default arm-none-eabi-
+depends on TOOLCHAIN_ARM_NONE_EABI
+
+config TOOLCHAIN_TYPE
+string
+default arm-linux-
+depends on TOOLCHAIN_ARM_LINUX

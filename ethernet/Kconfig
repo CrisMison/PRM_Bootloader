@@ -1,0 +1,10 @@
+
+config ENABLE_ETHERNET
+    bool "Enable Ethernet"
+    depends on !DISABLE_ETHERNET
+
+comment "ETHERNET DISABLE : Chip flash size limit"
+    depends on DISABLE_ETHERNET
+
+comment "ETHERNET LIMIT   : Chip flash size limit"
+    depends on !DISABLE_ETHERNET && LIMIT_ETHERNET

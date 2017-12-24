@@ -1,0 +1,30 @@
+
+config  DISABLE_ETHERNET
+    bool 
+    default y
+    depends on CHIP_STM32F103ZET6
+
+config  LIMIT_SHELL
+    bool
+    default y
+    depends on CHIP_STM32F103ZET6
+
+config  TARGET_ARM
+    bool
+    default y
+    depends on CHIP_STM32F103ZET6
+
+comment "Target architecture : ARM Cortex-M3"
+    depends on CHIP_STM32F103ZET6
+
+comment "Flash Start Address : 0x08000000"
+    depends on CHIP_STM32F103ZET6
+
+comment "Flash Size          : 512 KB"
+    depends on CHIP_STM32F103ZET6
+
+comment "RAM Start Address   : 0x02000000"
+    depends on CHIP_STM32F103ZET6
+
+comment "RAM Size            : 64 KB"
+    depends on CHIP_STM32F103ZET6

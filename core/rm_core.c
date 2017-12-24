@@ -45,7 +45,7 @@ void rm_version(void)
 {
     dprintf("\n\n");
     dprintf("\033[1;32mProject RM Bootloader\033[0m\n");
-    dprintf("\033[1;37mVersion %d.%04d (%s)\033[0m\n",RM_MAIN_VERSION, RM_SUB_VERSION, RM_VERSION_CODE);
+    dprintf("\033[1;37mVersion %s.%s (%s)\033[0m\n",RM_MAIN_VERSION, RM_SUB_VERSION, RM_VERSION_CODE);
     dprintf("\n");
 }
 

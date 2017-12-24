@@ -1,0 +1,12 @@
+
+
+config ENABLE_SHELL
+    bool "Enable Shell"
+    depends on !DISABLE_SHELL
+
+comment "SHELL DISABLE : Chip flash size limit"
+    depends on DISABLE_SHELL
+
+comment "SHELL LIMIT   : Chip flash size limit"
+    depends on !DISABLE_SHELL && LIMIT_SHELL
+

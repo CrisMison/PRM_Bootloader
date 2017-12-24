@@ -1,0 +1,31 @@
+
+mainmenu "PRM Bootloader 0.01 (NEST)"
+
+menu "Manufacturer and Chip"
+source ../platform/Kconfig
+endmenu
+
+menu "Complier"
+choice
+    prompt "Complier"
+    config TOOLCHAIN_ARM_NONE_EABI
+    bool "arm-none-eabi-gcc"
+    depends on TARGET_ARM
+
+    config TOOLCHAIN_ARM_LINUX
+    bool "arm-linux-gcc"
+    depends on TARGET_ARM
+endchoice
+
+source "Kconfig.in"
+endmenu
+
+menu "Shell"
+source ../shell/Kconfig
+endmenu
+
+menu "Ethernet"
+source ../ethernet/Kconfig
+endmenu
+
+

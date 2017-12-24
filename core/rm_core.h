@@ -1,8 +1,8 @@
 #ifndef _RM_CORE_H_
 #define _RM_CORE_H_
 
-#define RM_MAIN_VERSION         0
-#define RM_SUB_VERSION          1
+#define RM_MAIN_VERSION         "0"
+#define RM_SUB_VERSION          "01"
 
 #define RM_VERSION_CODE         "NEST"
 

@@ -1,11 +1,22 @@
 
+all:
+	@ $(MAKE) toolscheck
+	@ $(MAKE) targetbin
+
 include build/build.mk
 include $(shell find $(DIR_ROOT) -maxdepth 1 -name Makefile)
 
-LINK_LIB	:=	$(patsubst %,-l%,$(DES_LIB))
-
-all: $(DES_BIN) $(DES_ASM) $(DES_ELF)
+targetbin: $(DES_BIN) $(DES_ASM) $(DES_ELF)
 	@ echo -e '\033[37;1mMake Image files finished.\033[0m'
+
+menuconfig:
+	@ cd $(DIR_MCONF) && ($(CMAKE) . > $(NULL)) && ($(MAKE) > $(NULL))
+	@ $(DES_MONCIF) $(ROOT_KCONFIG)
+	
+cmenuconfig:
+	@ cd $(DIR_MCONF) && $(MAKE) clean > $(NULL)
+
+LINK_LIB	:=	$(patsubst %,-l%,$(DES_LIB))
 
 $(DES_ASM):$(DES_ELF)
 	@ echo '  [OBJDUMP]  ' $@
@@ -23,6 +34,12 @@ $(DES_ELF):$(DES_LIB)
 
 $(DES_LIB):$(OUTPUT_OBJ)
 
+toolscheck:
+	@ $(SCRIPT_CONFIG)
+	@ $(CC) -v > $(NULL)
+	@ $(CMAKE) --version > $(NULL)
+	
 clean:
 	@ rm -rf out
+	@ rm -rf 
 	@echo -e '\033[37;1mClean output files finished.\033[0m'

@@ -1,0 +1,2 @@
+
+source "STM32F103ZET6/Kconfig.in"
