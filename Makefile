@@ -15,6 +15,15 @@ menuconfig:
 	
 cmenuconfig:
 	@ cd $(DIR_MCONF) && $(MAKE) clean > $(NULL)
+	@ rm -rf $(DIR_MCONF)/*.cmake
+	@ rm -rf $(DIR_MCONF)/*.a
+	@ rm -rf $(DIR_MCONF)/CMakeCache.txt
+	@ rm -rf $(DIR_MCONF)/CMakeFiles
+	@ rm -rf $(DIR_MCONF)/Makefile
+	@ rm -rf $(DIR_MCONF)/lxdialog/CMakeFiles
+	@ rm -rf $(DIR_MCONF)/lxdialog/Makefile
+	@ rm -rf $(DIR_MCONF)/lxdialog/*.cmake
+	@ rm -rf $(DIR_MCONF)/lxdialog/*.a
 
 LINK_LIB	:=	$(patsubst %,-l%,$(DES_LIB))
 
